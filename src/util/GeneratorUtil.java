@@ -1,0 +1,29 @@
+package util;
+
+import java.util.HashSet;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
+
+public class GeneratorUtil {
+
+	// randomly generate double
+	public double getRandomlyDouble() {
+		return RandomUtils.nextDouble();
+	}
+	
+	// randomly generate double within the specified range
+	public double getRandomlyDouble(final int startInclusive, final int endInclusive) {
+		return RandomUtils.nextDouble(startInclusive, endInclusive);
+	}
+
+	// generate string set with given size, and each randomly generated string within a given specified range
+	public HashSet<String> getRandomlyString(final int size, final int startInclusive, final int endExclusive) {
+		HashSet<String> randomStrSet = new HashSet<String>();
+		for (int i = 0; i < size; i++) {
+			randomStrSet.add(RandomStringUtils.randomAlphanumeric(RandomUtils.nextInt(startInclusive, endExclusive)));
+		}
+		return randomStrSet;
+	}
+
+}
